@@ -24,19 +24,60 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      PFile.Aeson
+      PFile.CLI
+      PFile.CLI.List
+      PFile.CLI.New
+      PFile.CLI.Switch
+      PFile.CLI.Unpack
+      PFile.CLI.Which
+      PFile.Completion
+      PFile.Env
+      PFile.Error
+      PFile.Log
+      PFile.Main
+      PFile.Main.List
+      PFile.Main.New
+      PFile.Main.Switch
+      PFile.Main.Unpack
+      PFile.Main.Which
+      PFile.Mount
+      PFile.Path
+      PFile.Profile
+      PFile.Profile.Internal.Current
+      PFile.Profile.Internal.Lifetime
+      PFile.Profile.Internal.List
+      PFile.Profile.Internal.Profile
+      PFile.Profile.Internal.Registry
+      PFile.Profile.Internal.Serialization
+      PFile.Profile.Internal.Switch
+      PFile.Profile.LinkHandling
+      PFile.TrashCan
   other-modules:
       Paths_pfile
   autogen-modules:
       Paths_pfile
   hs-source-dirs:
       src
+  default-extensions:
+      NoImplicitPrelude
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      base >=4.7 && <5
+      HUnit
+    , aeson
+    , aeson-pretty
+    , base >=4.7 && <5
+    , directory
+    , filepath
+    , mtl
+    , optparse-applicative
+    , protolude
+    , temporary
+    , transformers
+    , unordered-containers
   default-language: Haskell2010
 
-executable pfile-exe
+executable pfile
   main-is: Main.hs
   other-modules:
       Paths_pfile
@@ -44,8 +85,61 @@ executable pfile-exe
       Paths_pfile
   hs-source-dirs:
       app
+  default-extensions:
+      NoImplicitPrelude
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      HUnit
+    , aeson
+    , aeson-pretty
+    , base >=4.7 && <5
+    , directory
+    , filepath
+    , mtl
+    , optparse-applicative
     , pfile
+    , protolude
+    , temporary
+    , transformers
+    , unordered-containers
+  default-language: Haskell2010
+
+test-suite pfile-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      PFile.Mount.Tests
+      PFile.Mount.Tests.Env
+      PFile.Path.Tests
+      PFile.Path.Tests.Env
+      PFile.Profile.LinkHandling.Tests.Env
+      PFile.Tests.Env
+      PFile.TrashCan.Tests
+      PFile.TrashCan.Tests.Env
+      Paths_pfile
+  autogen-modules:
+      Paths_pfile
+  hs-source-dirs:
+      test
+  default-extensions:
+      NoImplicitPrelude
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , aeson
+    , aeson-pretty
+    , base >=4.7 && <5
+    , directory
+    , filepath
+    , hspec
+    , mtl
+    , optparse-applicative
+    , pfile
+    , protolude
+    , tasty
+    , tasty-hspec
+    , tasty-quickcheck
+    , temporary
+    , transformers
+    , unordered-containers
   default-language: Haskell2010

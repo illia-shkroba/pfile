@@ -1,6 +1,9 @@
-module Main (main) where
+module Main
+  ( main
+  ) where
 
-import Lib
+import qualified PFile.Main as PFile
+import           Protolude
 
 main :: IO ()
-main = someFunc
+main = PFile.main

@@ -5,6 +5,8 @@ license:             BSD-3-Clause
 author:              "Illia Shkroba"
 maintainer:          "is@pjwstk.edu.pl"
 copyright:           "2024 Illia Shkroba"
+category:            Filesystem
+synopsis:            CLI program for profiles management.
 
 extra-source-files:
 - README.md

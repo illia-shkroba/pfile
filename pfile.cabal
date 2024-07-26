@@ -6,7 +6,9 @@ cabal-version: 2.2
 
 name:           pfile
 version:        0.1.0.0
+synopsis:       CLI program for profiles management.
 description:    Please see the README on GitHub at <https://github.com/illia-shkroba/pfile#readme>
+category:       Filesystem
 homepage:       https://github.com/illia-shkroba/pfile#readme
 bug-reports:    https://github.com/illia-shkroba/pfile/issues
 author:         Illia Shkroba

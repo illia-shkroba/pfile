@@ -6,5 +6,8 @@ sdist:
 	stack haddock --haddock-for-hackage
 	stack sdist --pvp-bounds both --test-tarball
 
-upload:
+upload-candidate:
 	stack upload --documentation --pvp-bounds both --test-tarball --candidate .
+
+upload:
+	stack upload --documentation --pvp-bounds both --test-tarball .

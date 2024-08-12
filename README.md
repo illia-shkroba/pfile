@@ -140,6 +140,30 @@ This would forcibly remove both:
 * Filesystem's objects where the next profile's (the one you provide to the
   `switch` command) links are expected to be placed.
 
+## Installation
+
+You can install it via:
+
+* [AUR](https://aur.archlinux.org/packages/pfile): `yay -Sy pfile`
+* [Stack](https://docs.haskellstack.org/en/stable/): `stack install pfile`
+* or build from source with [Stack](https://docs.haskellstack.org/en/stable/):
+
+```sh
+git clone https://github.com/illia-shkroba/pfile.git && cd pfile
+stack install
+```
+
+## Uninstallation
+
+You can uninstall it (if you have installed it) via:
+
+* AUR: `yay -Rcn pfile`
+* Stack (or built from source): `rm -f "$(stack path --local-bin)/pfile"`
+
+Be sure to restore filesystem's objects that were used to create profiles. Those
+could be found in **PFile** data home directory: `"$XDG_DATA_HOME/pfile"`. You
+can delete the directory afterwards.
+
 ## Motivation
 
 I work as an academic teacher and often use my terminal during lectures. When
